@@ -105,6 +105,12 @@
     args:
       chdir: "/tmp/{{ nginx_version }}"
 
+  - name: Делаем make
+    command: /bin/bash nginx start
+    become: true
+    args:
+      chdir: /etc/init.d/
+
       
   - name: Создаем конфигурацию nginx используя шаблон jinja2
     template:
@@ -124,13 +130,6 @@
       mode: '0777'
     become: true
 
-  - name: Делаем make
-    command: /bin/bash nginx start
-    become: true
-    args:
-      chdir: /etc/init.d/
-
-
   handlers:
   - name: restart nginx
     systemd:
@@ -142,10 +141,6 @@
       name: nginx
       state: reloaded
 
-
-
-    
-    
     
     
 
