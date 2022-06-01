@@ -2,11 +2,40 @@
 
 # Для проверки как это устроено вам потребуется:
 - Ubuntu 18-20-22 в качестве рабочего стенда
-- Ansible 2.9.6 или новее
-- Oracle VirtualBox 6.0
-- Vagrant 2.2.19 или новее
+- Ansible 2.9.6 или новее - инструмент деплоя nginx на стенд
+Для установки Ansible нужен python версии 3 и ssh
+Выполните проверку 
 
-Если по команде vagrant up из основной директории проекта выдает ошибку образа, требуется скачать и установить образ, аналогичный Centos 7 -  https://app.vagrantup.com/centos/boxes/7
+	$ python --version
+	
+если в выводе нет версии Pytnon 3.X.X то выполниту установку пакетов и обозначение приоритета для Python 3: 
+
+	$ apt install git python3-pip
+	$ update-alternatives --install /usr/bin/python python /usr/bin/python3 2
+
+Установите Ansible
+
+	$ pip3 install ansible
+
+- Oracle VirtualBox 6.0 - инструмент виртуализации среды
+
+Выгрузите дистрибутив для вашей версии Ubuntu 
+https://www.virtualbox.org/wiki/Download_Old_Builds_6_0
+Выполните установку:
+
+	$ sudo dpgk -i название_пакета
+
+В случае возникновения проблем с зависимостями, выполнить:
+
+	$ apt-get install --fix-missing
+
+- Vagrant 2.2.19 или новее - инструмент, необходимый для конфигурации виртуальной машины, запуска скриптов и сценриев ansible
+
+	Выгрузить и установить можно с  источника https://www.vagrantup.com/downloads (для пользователей из России потреубется ВПН)
+	
+--------------------------
+
+Если по команде **vagrant up** из основной директории проекта выдает ошибку образа, требуется скачать и установить образ, аналогичный Centos 7 -  https://app.vagrantup.com/centos/boxes/7
 Также трубется заменить название образа, которое вы указали при загрузке (команда vagrant box add --name ИМЯ_ОБРАЗА URL or Address to Image) в файле Vagrantfile проекта.
 
       Vagrant.configure("2") do |config|
