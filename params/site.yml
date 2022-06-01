@@ -8,7 +8,7 @@
     nginx_sbin_path: "/usr/sbin/nginx"
     nginx_conf_path: "/etc/nginx/nginx.conf"
     nginx_custom_modules: "--with-http_auth_request_module"
-    nginx_listen_port: 8080
+    nginx_listen_port: 8083
 
   tasks:
   - name: switch SELinux to permoissive mode
