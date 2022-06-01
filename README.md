@@ -69,7 +69,7 @@ https://www.virtualbox.org/wiki/Download_Old_Builds_6_0
 - Используя jinja2 шаблон подставляем нашу конфигурацию nginx
 - Отдельно заливаем файл index.html
 - Notity есть на restart и reload. Прописаны Handlers
-- директория под сайт /opt/www
+- Директория под сайт /opt/www
 
 чтобы увидеть страничку выполнить переход по ссылке:
 
