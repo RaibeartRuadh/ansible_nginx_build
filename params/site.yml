@@ -2,7 +2,7 @@
 - hosts: server
   become: true
   vars:
-    nginx_version: nginx-1.19.3
+    nginx_version: nginx-1.21.6
     nginx_install_dir: "/tmp/{{ nginx_version }}"
     nginx_tarball_url: "http://nginx.org/download/{{ nginx_version }}.tar.gz"
     nginx_sbin_path: "/usr/sbin/nginx"
@@ -138,6 +138,7 @@
       name: nginx
       state: restarted
       enabled: yes
+      
   - name: reload nginx
     systemd:
       name: nginx
